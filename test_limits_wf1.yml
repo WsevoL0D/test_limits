@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+
+    - name: Dump all hosts
+      debug:
+        msg:
+          - "{{ play_hosts }}"
+      run_once: true
+      delegate_to: localhost

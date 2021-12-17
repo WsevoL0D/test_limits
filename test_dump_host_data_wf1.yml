@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+
+    - name: Dump essential data
+      debug:
+        msg:
+          - "{{ inventory_hostname }}"
+          - "{{ ansible_host }}"
+          - "{{ ansible_fqdn }}"
+          - "{{ ansible_all_ipv4_addresses|default(ansible_ip_addresses) }}"
+          - "{{ ansible_distribution }}"
+          - "{{ ansible_distribution_version }}"
+          - "{{ ansible_python_version|default('n/a') }}"
